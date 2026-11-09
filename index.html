@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calendario Circolari – Belluzzi da Vinci</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2563eb">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Circolari">
+<link rel="apple-touch-icon" href="icon-192.png">
+</head>
+<body>
+<header>
+  <h1> Calendario Circolari<small>Istituto “Belluzzi da Vinci”</small></h1>
+  <div class="user">
+    <label for="who">Docente:</label>
+    <input id="who" placeholder="Nome e cognome" size="18">
+  </div>
+</header>
+<main>
+  <section class="card">
+    <div class="bar">
+      <button id="prev" aria-label="Mese precedente">◀</button>
+      <h2 id="title"></h2>
+      <button id="next" aria-label="Mese successivo">▶</button>
+      <button id="today">Oggi</button>
+      <select id="filter" aria-label="Filtra per tipo">
+        <option value="">Tutti i tipi</option><option value="circolare">Circolari</option>
+        <option value="riunione">Riunioni</option><option value="evento">Eventi</option><option value="scadenza">Scadenze</option>
+      </select>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="legend">
+      <span><span class="dot t-circolare" style="display:inline-block"></span> Circolare</span>
+      <span><span class="dot t-riunione" style="display:inline-block"></span> Riunione</span>
+      <span><span class="dot t-evento" style="display:inline-block"></span> Evento</span>
+      <span><span class="dot t-scadenza" style="display:inline-block"></span> Scadenza</span>
+    </div>
+    <p class="stat" id="stat"></p>
+  </section>
+
+  <aside style="display:grid;gap:16px;align-content:start">
+    <div class="card">
+      <h3 id="dayTitle"></h3>
+      <div id="list"></div>
+    </div>
+    <div class="card">
+      <h3>➕ Nuova circolare / impegno</h3>
+      <form id="form">
+        <label>Titolo<input id="f-title" required maxlength="80"></label>
+        <div class="row2">
+          <label>Data<input id="f-date" type="date" required></label>
+          <label>Tipo<select id="f-type"><option value="circolare">Circolare</option><option value="riunione">Riunione</option><option value="evento">Evento</option><option value="scadenza">Scadenza</option></select></label>
+        </div>
+        <div class="row2">
+          <label>Destinatari<select id="f-aud"><option>Docenti</option><option>Studenti</option><option>Tutti</option></select></label>
+          <label>N° circolare<input id="f-num" placeholder="es. 123"></label>
+        </div>
+        <label>Descrizione<textarea id="f-desc" rows="3" maxlength="400"></textarea></label>
+        <label style="display:flex;gap:6px;align-items:center;flex-direction:row"><input id="f-sign" type="checkbox" checked> Richiede firma per presa visione</label>
+        <button class="pri" type="submit">Inserisci nel calendario</button>
+      </form>
+    </div>
+  </aside>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
